@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1715">
+<title>ClearSkies — Your everyday clean-air guide</title>
+<style>
+:root{--bg:#0b1715;--panel:#12231f;--panel2:#172d27;--mint:#a7f3d0;--lime:#d5f36a;--text:#f2f7f3;--muted:#a8bbb2;--line:#294139;--orange:#ffc078}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 500px at 85% -10%,#244b3d 0%,transparent 60%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1120px;margin:auto;padding:24px 20px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:44px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.5px}.logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--mint),var(--lime));display:grid;place-items:center;color:#10211b;font-size:20px}.tag{color:var(--mint);font-size:12px;border:1px solid #3a6555;padding:7px 12px;border-radius:99px}
+.hero{max-width:760px;margin-bottom:28px}.eyebrow{color:var(--lime);font-weight:700;font-size:12px;letter-spacing:1.8px;text-transform:uppercase}.hero h1{font-size:clamp(36px,6vw,64px);line-height:1.02;letter-spacing:-2.5px;margin:14px 0}.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.grid{display:grid;grid-template-columns:350px 1fr;gap:18px;align-items:start}.card{background:linear-gradient(160deg,#172b25,#10201c);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 18px 60px #0002}.card h2{font-size:18px;margin:0 0 16px}.field{margin:13px 0}.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;background:#0b1916;color:var(--text);border:1px solid #355247;border-radius:10px;padding:12px;font:inherit;outline:none}.field input:focus,.field select:focus{border-color:var(--mint)}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:12px;padding:13px 16px;font-weight:800;cursor:pointer;font:inherit}.primary{background:var(--lime);color:#172319;width:100%;margin-top:8px}.secondary{background:#203b31;color:var(--mint);border:1px solid #426455}.small{font-size:12px;color:var(--muted)}.aqi{display:flex;justify-content:space-between;align-items:center;background:#1c352c;border:1px solid #3b5c4d;border-radius:14px;padding:14px;margin-bottom:18px}.aqi strong{font-size:28px;color:var(--lime)}.aqi span{display:block;color:var(--muted);font-size:11px}.pill{font-size:12px;padding:5px 9px;border-radius:99px;background:#314b3d;color:var(--mint)}
+.results{display:grid;gap:14px}.summary{padding:24px;background:linear-gradient(120deg,#203e32,#152a23);border:1px solid #42604f;border-radius:18px}.summary h2{font-size:23px;margin:0 0 6px}.summary p{margin:0;color:#c2d4ca}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.stat{background:#10221c;border:1px solid #355044;padding:12px;border-radius:12px}.stat b{font-size:21px;color:var(--lime);display:block}.stat span{font-size:11px;color:var(--muted)}
+.actions{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.action{background:#12251f;border:1px solid var(--line);border-radius:15px;padding:17px}.action .icon{font-size:22px}.action h3{font-size:15px;margin:8px 0 5px}.action p{color:var(--muted);font-size:13px;margin:0}.impact{font-size:12px;color:var(--mint);margin-top:10px;font-weight:700}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:6px 0}.sectionhead h2{margin:0;font-size:18px}.genai{border:1px solid #4b6755;background:#12251f;border-radius:16px;padding:17px}.genai textarea{min-height:78px;resize:vertical}.genaiout{white-space:pre-wrap;color:#dce9e0;font-size:14px;margin-top:12px}.foot{margin-top:25px;color:#82978c;font-size:11px;text-align:center}.hidden{display:none}
+@media(max-width:820px){.grid{grid-template-columns:1fr}.top{margin-bottom:30px}.actions{grid-template-columns:1fr 1fr}}@media(max-width:480px){.wrap{padding:17px 13px 40px}.actions,.stats{grid-template-columns:1fr}.hero h1{letter-spacing:-1.5px}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="top"><div class="brand"><div class="logo">✳</div>ClearSkies</div><div class="tag">CLEAN AIR, PRACTICAL ACTION</div></header>
+<section class="hero"><div class="eyebrow">Your personal clean-air companion</div><h1>Breathe smarter.<br><span style="color:var(--mint)">Live lighter.</span></h1><p>Simple, location-aware ideas to protect your household during smog and reduce the pollution we create — one realistic choice at a time.</p></section>
+<div class="grid">
+<aside class="card">
+<h2>🌍 Your daily context</h2>
+<div class="field"><label for="city">City / neighbourhood</label><input id="city" value="Visakhapatnam" placeholder="e.g. Delhi, India"></div>
+<div class="two">
+<div class="field"><label for="aqi">Current AQI (if known)</label><input id="aqi" type="number" min="0" max="500" value="150"></div>
+<div class="field"><label for="home">Home type</label><select id="home"><option>Apartment</option><option>Independent house</option><option>Shared accommodation</option></select></div>
+</div>
+<div class="field"><label for="travel">Usual commute</label><select id="travel"><option value="two-wheeler">Two-wheeler</option><option value="car">Car</option><option value="bus">Public bus</option><option value="walk">Walk / cycle</option><option value="mixed">Mixed commute</option></select></div>
+<div class="field"><label for="household">Household needs</label><select id="household"><option>Family with children</option><option>Older adults at home</option><option>Adults / students</option><option>Mixed-age household</option></select></div>
+<div class="field"><label for="priority">Main priority</label><select id="priority"><option value="health">Protect indoor air & health</option><option value="emissions">Reduce daily emissions</option><option value="budget">Low-cost practical changes</option><option value="all">A bit of everything</option></select></div>
+<button class="btn primary" onclick="makePlan()">Build my clean-air plan →</button>
+<p class="small">AQI is user-entered for this demo; the app does not claim to fetch live readings.</p>
+</aside>
+<section class="results">
+<div class="aqi"><div><span>YOUR INPUT AQI · NOT A LIVE READING</span><strong id="aqinum">150</strong></div><div style="text-align:right"><span>Indicative category</span><b class="pill" id="aqilabel">Unhealthy for sensitive groups</b></div></div>
+<div class="summary"><h2 id="headline">A few smart shifts can make today safer.</h2><p id="intro">Start with cleaner indoor air, avoid the busiest traffic window and choose a lower-emission trip when practical.</p><div class="stats"><div class="stat"><b id="score">3</b><span>priority actions today</span></div><div class="stat"><b id="co2">~0.8 kg</b><span>potential CO₂e avoided*</span></div><div class="stat"><b>₹0–₹</b><span>mostly no-cost changes</span></div></div></div>
+<div class="sectionhead"><h2>Today's action cards</h2><span class="pill">Personalised suggestions</span></div>
+<div class="actions" id="actions">
+<div class="action"><div class="icon">🪟</div><h3>Time your ventilation</h3><p>Keep windows closed when outdoor pollution is high. Ventilate briefly when local conditions improve.</p><div class="impact">Impact: reduces outdoor particle entry</div></div>
+<div class="action"><div class="icon">🚌</div><h3>Choose a shared ride</h3><p>For a suitable trip, use a bus, carpool or combine errands instead of taking a separate vehicle.</p><div class="impact">Impact: fewer vehicle kilometres</div></div>
+<div class="action"><div class="icon">🧹</div><h3>Clean without stirring dust</h3><p>Use a damp cloth or wet mop; avoid dry sweeping and incense or smoke indoors.</p><div class="impact">Impact: less indoor particle resuspension</div></div>
+<div class="action"><div class="icon">🌳</div><h3>Plan outdoor time wisely</h3><p>Move strenuous exercise indoors when air quality is poor, especially for children and older adults.</p><div class="impact">Impact: lowers exposure during exertion</div></div>
+</div>
+<div class="genai"><div class="sectionhead"><h2>✨ Ask ClearSkies AI</h2><span class="pill">Gemini-powered</span></div><p class="small">Ask for a practical routine based on your household. Add a Gemini API key from Google AI Studio for live AI generation; otherwise use the built-in guidance.</p>
+<div class="field"><label for="question">What would you like help with?</label><textarea id="question" placeholder="Example: Make a low-cost morning routine for my family during a high-smog week."></textarea></div>
+<div class="field"><label for="apikey">Gemini API key (optional; kept only in this browser session)</label><input id="apikey" type="password" placeholder="Paste your Gemini API key"></div>
+<button class="btn secondary" onclick="askAI()">Generate advice with Gemini ↗</button>
+<div id="aiout" class="genaiout"></div></div>
+<p class="small">*CO₂e figure is an illustrative estimate for a possible shared-trip substitution, not a measured or guaranteed saving. Health advice is general: follow local official AQI guidance and medical advice. An air purifier with an appropriately sized HEPA filter may help reduce indoor particles; avoid ozone-generating devices.</p>
+</section></div>
+<footer class="foot">ClearSkies · Small actions, cleaner communities · Demo prototype</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function category(v){if(v<=50)return["Good","#a7f3d0"];if(v<=100)return["Moderate","#d5f36a"];if(v<=150)return["Unhealthy for sensitive groups","#ffc078"];if(v<=200)return["Unhealthy","#ff9b76"];if(v<=300)return["Very unhealthy","#ff806f"];return["Hazardous","#ff6b6b"]}
+function makePlan(){
+ let city=$("city").value.trim()||"your area", a=Math.max(0,Math.min(500,Number($("aqi").value)||0)), travel=$("travel").value, home=$("home").value, who=$("household").value, priority=$("priority").value;
+ $("aqinum").textContent=a; $("aqilabel").textContent=category(a)[0];
+ $("headline").textContent=a>150?"Take extra care today in "+city+".":"A few smart shifts can make today safer in "+city+".";
+ $("intro").textContent=a>150?"With a high AQI reading entered, prioritise reducing exposure: shift strenuous activity indoors, keep outside doors/windows closed during pollution peaks and check official local updates.":"Start with cleaner indoor air, avoid the busiest traffic window and choose a lower-emission trip when practical.";
+ let cards=[];
+ cards.push(["🪟","Manage fresh air","Keep windows closed during high-pollution periods. Ventilate briefly when outdoor air improves; don't seal rooms without adequate safe ventilation.","Impact: reduces entry of outdoor particles"]);
+ cards.push(["🧽","Reduce indoor sources","Wet-mop and dust with a damp cloth. Avoid smoking, incense, candles and frying without kitchen exhaust.","Impact: limits particles created indoors"]);
+ if(travel==="two-wheeler"||travel==="car") cards.push(["🚌","Try one shared trip","If practical, replace one solo vehicle trip with a bus, carpool or combined errands. Choose a route away from heavy traffic where possible.","Impact: can reduce vehicle kilometres and emissions"]);
+ else cards.push(["🚶","Keep active at the right time","Choose walking/cycling on cleaner-air routes and times. When AQI is high, move strenuous activity indoors.","Impact: supports lower-emission mobility while managing exposure"]);
+ cards.push(["🫧","Make one indoor-air upgrade","If affordable, use a correctly sized HEPA air cleaner in the room used most. Avoid ozone generators; maintain filters as directed.","Impact: HEPA filtration can reduce airborne particles"]);
+ if(who.includes("children")||who.includes("Older")) cards.push(["👨‍👩‍👧","Protect sensitive family members","Keep children and older adults away from busy roads and intense outdoor exercise during poor-air periods. Follow local health guidance.","Impact: reduces exposure for more sensitive groups"]);
+ $("actions").innerHTML=cards.slice(0,4).map(c=>`<article class="action"><div class="icon">${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p><div class="impact">${c[3]}</div></article>`).join("");
+ $("score").textContent=cards.length; $("co2").textContent=travel==="car"||travel==="two-wheeler"?"~0.8 kg*":"Varies*";
+}
+async function askAI(){
+ const key=$("apikey").value.trim(), q=$("question").value.trim(), out=$("aiout");
+ if(!q){out.textContent="Please enter a question first.";return}
+ if(!key){out.textContent="Add a Gemini API key to enable live generation. Your personalised action plan above is available without a key.";return}
+ out.textContent="Generating advice…";
+ const city=$("city").value, aqi=$("aqi").value, home=$("home").value, commute=$("travel").value, household=$("household").value;
+ const prompt=`You are ClearSkies, a cautious clean-air community assistant. User context: location ${city}; user-entered AQI ${aqi} (not verified live); home ${home}; commute ${commute}; household ${household}. User asks: ${q}. Give concise actionable advice in sections: Do today, Indoor air, Lower-emission choice, Why it matters. Do not invent live AQI or claim precise health/CO2 outcomes. Encourage checking official local AQI and medical advice for symptoms. Keep recommendations affordable and culturally practical.`;
+ try{
+  const r=await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key="+encodeURIComponent(key),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.4,maxOutputTokens:700}})});
+  const data=await r.json(); if(!r.ok) throw new Error(data.error?.message||"Gemini request failed");
+  out.textContent=data.candidates?.[0]?.content?.parts?.map(p=>p.text||"").join("\n")||"No response received.";
+ }catch(e){out.textContent="AI request error: "+e.message+". Check your API key and try again."}
+}
+$("aqi").addEventListener("input",()=>{let a=Number($("aqi").value)||0;$("aqinum").textContent=a;$("aqilabel").textContent=category(a)[0]});
+makePlan();
+</script></body></html>
