@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "A privacy-conscious clean-air companion for Indian households",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
@@ -12,5 +14,8 @@
     "test:coverage": "node --experimental-test-coverage --test",
     "check": "node --check server.js && node --check src/aqi.js && node --check src/impact.js && node --check src/recommendations.js && node --check src/validation.js && node --check public/js/app.js",
     "smoke": "node test/smoke.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10"
   }
 }
